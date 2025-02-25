@@ -1,0 +1,5 @@
+dependencies:
+  idf: ">=5.0"
+  lvgl/lvgl: "8.3.11"
+  esp_lcd_touch_gt911: "^1.0"
+  
