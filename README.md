@@ -4,7 +4,11 @@
 
 Display driver for waveshare 1.47inch display and LGVL for ESP IDF framework. 
 
+Additional work with SD card and RGB led. In case there is no need to use the SD card it is necessary to call display.initBus(true). If the SD card is to be used it is first necessary to initialize the SPI for sdcard.initBus(true) and then it is not necessary to initialize display.initBus(false).   
 
+If the display is shifted, it is necessary to correct it by changing the settings in the esp_lcd_panel_set_gap(_panelHandle, XXX, YYY) register. 
+
+Because the SPI bus is shared between the LCD and the SD, there is an SPI manager that controls access to the SPI. Although this module is RISC V and has one core, there is synchronization for transfer to the dual core ESP.
 
 # Module Information
 

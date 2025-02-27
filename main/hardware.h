@@ -50,6 +50,14 @@
 
 */
 
+#define HW_LED_RGB         8
+
+#define HW_SD_MOSI         6
+#define HW_SD_MISO         5
+#define HW_SD_CLK          7
+#define HW_SD_CS           4
+
+
 #define HW_LCD_H            172
 #define HW_LCD_V            320
 

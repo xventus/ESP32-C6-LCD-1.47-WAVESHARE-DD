@@ -166,10 +166,12 @@ void DisplayDriver::lvglFlush(lv_disp_drv_t *drv, const lv_area_t *area, lv_colo
              first_pixel.ch.green,
              first_pixel.ch.blue);
     */
-
-    esp_err_t ret = esp_lcd_panel_draw_bitmap(instance->_panelHandle, area->x1, area->y1, area->x2 + 1, area->y2 + 1, color_map);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Error drawing bitmap: %d", ret);
+    {
+        SPILockGuard lock;
+        esp_err_t ret = esp_lcd_panel_draw_bitmap(instance->_panelHandle, area->x1, area->y1, area->x2 + 1, area->y2 + 1, color_map);
+        if (ret != ESP_OK) {
+            ESP_LOGE(TAG, "Error drawing bitmap: %d", ret);
+        }
     }
 
     lv_disp_flush_ready(drv);

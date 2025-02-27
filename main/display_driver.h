@@ -17,7 +17,8 @@
 
 #include "lvgl.h"
 #include "esp_lcd_panel_io.h"
-#include "driver/ledc.h"   
+#include "driver/ledc.h"  
+#include "spi_manager.h" 
 
 class DisplayDriver
 {
